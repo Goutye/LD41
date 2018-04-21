@@ -93,7 +93,7 @@ class Tween:
 
 	func _init(object, time, varss, mode, fluxx):
 		flux = fluxx
-		obj = object
+		obj = weakref(object)
 		rate = 1.0 / time if time > 0.0 else 0.0
 		progress = 0.0 if time > 0.0 else 1.0
 		_delay = 0.0
@@ -101,6 +101,10 @@ class Tween:
 		_ease_type = "out"
 		vars = {}
 		var_prev = {}
+		if (!obj.get_ref()):
+			return
+		else:
+			object = obj.get_ref()
 		if mode == 'absolute':
 			for key in varss:
 				match key:
@@ -194,6 +198,8 @@ func remove(x):
 func update(deltatime):
 	for i in range(len(self.tweens) - 1, -1, -1):
 		var t = self.tweens[i]
+		if (!t.obj.get_ref()):
+			continue
 		if t._delay > 0:
 			t._delay = t._delay - deltatime
 		else:
@@ -211,25 +217,25 @@ func update(deltatime):
 					if not t.var_prev.has(k):
 						t.var_prev[k] = 0
 					var xvDif = x * v.diff
-					t.obj.translate(Vector2(xvDif - t.var_prev[k], 0))
+					t.obj.get_ref().translate(Vector2(xvDif - t.var_prev[k], 0))
 					t.var_prev[k] = xvDif
 				elif k == "ui_x":
 					if not t.var_prev.has(k):
 						t.var_prev[k] = 0
 					var xvDif = x * v.diff
-					t.obj.rect_position.x += (xvDif - t.var_prev[k])
+					t.obj.get_ref().rect_position.x += (xvDif - t.var_prev[k])
 					t.var_prev[k] = floor(xvDif)
 				elif k == "y":
 					if not t.var_prev.has(k):
 						t.var_prev[k] = 0
 					var xvDif = x * v.diff
-					t.obj.translate(Vector2(0, xvDif - t.var_prev[k]))
+					t.obj.get_ref().translate(Vector2(0, xvDif - t.var_prev[k]))
 					t.var_prev[k] = xvDif
 				elif k == "angle":
 					if not t.var_prev.has(k):
 						t.var_prev[k] = 0
 					var xvDif = x * v.diff
-					t.obj.rotate(xvDif - t.var_prev[k])
+					t.obj.get_ref().rotate(xvDif - t.var_prev[k])
 					t.var_prev[k] = xvDif
 
 			if len(t.onupdate) > 0:

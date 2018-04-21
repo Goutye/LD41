@@ -67,7 +67,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.2, 0.2, 0.2, 1 )
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
 [node name="Container" type="CenterContainer" parent="HBoxContainer" index="1"]
@@ -109,13 +109,52 @@ size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer" index="2"]
+[node name="Container2" type="CenterContainer" parent="HBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/Container2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 62.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 60, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.57132, 0, 0.753906, 1 )
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
 margin_right = 440.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )

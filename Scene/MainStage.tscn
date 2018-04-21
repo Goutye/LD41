@@ -1,87 +1,120 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scene/Block.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scene/SlopeBlock.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scene/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/NormalGravityArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/Block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene/SlopeBlock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scene/Exit.tscn" type="PackedScene" id=6]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
-[node name="KinematicBody2D2" parent="." index="0" instance=ExtResource( 1 )]
+[node name="GravityAreas" type="Node2D" parent="." index="0"]
+
+[node name="Area2D" parent="GravityAreas" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 631, 420 )
+scale = Vector2( 20.2813, 14.5469 )
+
+[node name="KinematicBody2D2" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 80, 380 )
 _sections_unfolded = [ "Pause", "Transform", "collision" ]
 
-[node name="Node2D" type="Node2D" parent="." index="1"]
+[node name="Blocks" type="Node2D" parent="." index="2"]
 
-[node name="Block" parent="Node2D" index="0" instance=ExtResource( 2 )]
+editor/display_folded = true
+
+[node name="Block" parent="Blocks" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 100, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block2" parent="Node2D" index="1" instance=ExtResource( 2 )]
+[node name="Block17" parent="Blocks" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 30, 250 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block16" parent="Blocks" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 360, 210 )
+scale = Vector2( 2.28125, 1 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block2" parent="Blocks" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 300, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block3" parent="Node2D" index="2" instance=ExtResource( 2 )]
+[node name="Block3" parent="Blocks" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 300, 560 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block4" parent="Node2D" index="3" instance=ExtResource( 2 )]
+[node name="Block4" parent="Blocks" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 500, 560 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block5" parent="Node2D" index="4" instance=ExtResource( 2 )]
+[node name="Block13" parent="Blocks" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 980, 330 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block14" parent="Blocks" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 690, 210 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block5" parent="Blocks" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( 700, 560 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block6" parent="Node2D" index="5" instance=ExtResource( 2 )]
+[node name="Block6" parent="Blocks" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( 900, 560 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block8" parent="Node2D" index="6" instance=ExtResource( 2 )]
+[node name="Block8" parent="Blocks" index="10" instance=ExtResource( 3 )]
 
 position = Vector2( 1100, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block9" parent="Node2D" index="7" instance=ExtResource( 2 )]
+[node name="Block9" parent="Blocks" index="11" instance=ExtResource( 3 )]
 
 position = Vector2( 500, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 blockcolor = 1
 
-[node name="Block10" parent="Node2D" index="8" instance=ExtResource( 2 )]
+[node name="Block10" parent="Blocks" index="12" instance=ExtResource( 3 )]
 
 position = Vector2( 700, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 blockcolor = 1
 
-[node name="Block7" parent="Node2D" index="9" instance=ExtResource( 2 )]
+[node name="Block7" parent="Blocks" index="13" instance=ExtResource( 3 )]
 
 position = Vector2( 900, 510 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Block11" parent="Node2D" index="10" instance=ExtResource( 3 )]
+[node name="Block11" parent="Blocks" index="14" instance=ExtResource( 4 )]
 
-position = Vector2( 500, 460 )
+position = Vector2( 930, 390 )
 
-[node name="Block12" parent="Node2D" index="11" instance=ExtResource( 3 )]
+[node name="Block12" parent="Blocks" index="15" instance=ExtResource( 4 )]
 
-position = Vector2( 700, 460 )
-scale = Vector2( -1, 1 )
+position = Vector2( 592.08, 284.287 )
+scale = Vector2( -1, -1 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Node2D" parent="Node2D/Block12" index="1" instance=ExtResource( 4 )]
+[node name="Block15" parent="Blocks" index="16" instance=ExtResource( 4 )]
 
-position = Vector2( -462.62, -19.0001 )
+position = Vector2( 790, 260 )
+scale = Vector2( 1, -1 )
+_sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="2"]
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 0
 rotating = false
@@ -108,5 +141,11 @@ editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="HUD" parent="Camera2D" index="0" instance=ExtResource( 5 )]
+
+[node name="ExitArea" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 1149.62, 428 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
 
 

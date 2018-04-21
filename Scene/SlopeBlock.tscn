@@ -14,6 +14,7 @@ light_mode = 0
 material = SubResource( 1 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
+can_click = true
 blockcolor = 0
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
@@ -35,6 +36,27 @@ build_mode = 0
 polygon = PoolVector2Array( -100, 25, 100, 25, 100, -25 )
 _sections_unfolded = [ "Z Index" ]
 
+[node name="Area2D" type="Area2D" parent="KinematicBody2D" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KinematicBody2D/Area2D" index="0"]
+
+scale = Vector2( 0.96, 0.96 )
+build_mode = 0
+polygon = PoolVector2Array( -100, 25, 100, 25, 100, -25 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
 [connection signal="input_event" from="KinematicBody2D" to="." method="_on_KinematicBody2D_input_event"]
+
+[connection signal="body_entered" from="KinematicBody2D/Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="KinematicBody2D/Area2D" to="." method="_on_Area2D_body_exited"]
 
 

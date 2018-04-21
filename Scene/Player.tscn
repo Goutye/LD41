@@ -3,6 +3,8 @@
 [ext_resource path="res://Script/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerSprite.png" type="Texture" id=2]
 
+
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
@@ -10,7 +12,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.09
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "collision" ]
+_sections_unfolded = [ "Pause" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

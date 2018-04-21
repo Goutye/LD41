@@ -16,11 +16,13 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_color_1"):
-		global.current_color = global.BLOCKCOLOR.BLACK
+		global.current_color = global.BLOCKCOLOR.GRAY
 		flux.to($Cursor, 0.3, {ui_x = origin_cursor}, "absolute").ease('quad','out')
 	elif Input.is_action_just_pressed("ui_color_2"):
-		
 		global.current_color = global.BLOCKCOLOR.WHITE
 		flux.to($Cursor, 0.3, {ui_x = origin_cursor + 64}, "absolute").ease('quad','out')
+	elif Input.is_action_just_pressed("ui_color_3"):
+		global.current_color = global.BLOCKCOLOR.PURPLE
+		flux.to($Cursor, 0.3, {ui_x = origin_cursor + 128}, "absolute").ease('quad','out')
 		
 	

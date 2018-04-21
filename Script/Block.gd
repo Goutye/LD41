@@ -6,25 +6,48 @@ extends Node2D
 
 var platform
 var color
-onready var global = get_node("/root/global")
+var agents = []
 
-export(int, "BLACK", "WHITE") var blockcolor = 0
+export var can_click = true
+
+onready var global = get_node("/root/global")
+onready var player = preload("res://Script/Player.gd")
+
+export(int, "GRAY", "WHITE", "PURPLE", "BLACK") var blockcolor = 0
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	update_block(blockcolor)
 	
+func update_body_in():
+	if blockcolor == global.BLOCKCOLOR.PURPLE:
+		for body in agents:
+			if body is player:
+				body.gravity_dir = -body.gravity_dir
+				print("inverse")
+	
 func update_block(var newblockcolor):
 	blockcolor = newblockcolor
-	if blockcolor == global.BLOCKCOLOR.BLACK:
+	$KinematicBody2D/Node2D.set_color(global.get_color(blockcolor))
+	if blockcolor == global.BLOCKCOLOR.GRAY:
 		$KinematicBody2D/CollisionPolygon2D.disabled = false
-		$KinematicBody2D/Node2D.set_color(Color(0,0,0,1))
 	elif blockcolor == global.BLOCKCOLOR.WHITE:
 		$KinematicBody2D/CollisionPolygon2D.disabled = true
-		$KinematicBody2D/Node2D.set_color(Color(1,1,1,1))
+	elif blockcolor == global.BLOCKCOLOR.PURPLE:
+		$KinematicBody2D/CollisionPolygon2D.disabled = true
+		update_body_in()
+	elif blockcolor == global.BLOCKCOLOR.BLACK:
+		$KinematicBody2D/CollisionPolygon2D.disabled = false
 
 func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
+	if can_click and event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
 			update_block(global.current_color)
+
+func _on_Area2D_body_entered(body):
+	agents.append(body)
+	update_body_in()
+
+func _on_Area2D_body_exited(body):
+	agents.erase(body)

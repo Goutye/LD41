@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scene/NormalGravityArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/Block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/Exit.tscn" type="PackedScene" id=5]
+
+[node name="stage" type="Node"]
+
+[node name="GravityAreas" type="Node2D" parent="." index="0"]
+
+[node name="Area2D" parent="GravityAreas" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 1020, 590 )
+scale = Vector2( 33.9063, 19.9297 )
+
+[node name="KinematicBody2D2" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 190, 470 )
+_sections_unfolded = [ "Pause", "Transform", "collision" ]
+
+[node name="Blocks" type="Node2D" parent="." index="2"]
+
+[node name="Block" parent="Blocks" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 190, 570 )
+_sections_unfolded = [ "Material", "Transform" ]
+can_click = false
+blockcolor = 3
+
+[node name="Block5" parent="Blocks" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 12.8697, 478.487 )
+rotation = 1.5708
+scale = Vector2( 5.8005, 3 )
+_sections_unfolded = [ "Material", "Transform" ]
+can_click = false
+blockcolor = 3
+
+[node name="Block2" parent="Blocks" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 390, 570 )
+_sections_unfolded = [ "Material", "Transform" ]
+can_click = false
+blockcolor = 3
+
+[node name="Block6" parent="Blocks" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 510, 520 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block3" parent="Blocks" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 590, 570 )
+_sections_unfolded = [ "Material", "Transform" ]
+can_click = false
+blockcolor = 3
+
+[node name="Block4" parent="Blocks" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 790, 570 )
+_sections_unfolded = [ "Material", "Transform" ]
+can_click = false
+blockcolor = 3
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 15.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.4
+drag_margin_top = 0.2
+drag_margin_right = 0.1
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
+
+[node name="HUD" parent="Camera2D" index="0" instance=ExtResource( 4 )]
+
+[node name="ExitArea" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 830.317, 483.719 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+
