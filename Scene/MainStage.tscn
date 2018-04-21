@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/SlopeBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=5]
+
+[node name="stage" type="Node" index="0"]
+
+[node name="KinematicBody2D2" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 80, 380 )
+_sections_unfolded = [ "Pause", "Transform", "collision" ]
+
+[node name="Node2D" type="Node2D" parent="." index="1"]
+
+[node name="Block" parent="Node2D" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 100, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block2" parent="Node2D" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 300, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block3" parent="Node2D" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 300, 560 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block4" parent="Node2D" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 500, 560 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block5" parent="Node2D" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 700, 560 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block6" parent="Node2D" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 900, 560 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block8" parent="Node2D" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 1100, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block9" parent="Node2D" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 500, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+blockcolor = 1
+
+[node name="Block10" parent="Node2D" index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 700, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+blockcolor = 1
+
+[node name="Block7" parent="Node2D" index="9" instance=ExtResource( 2 )]
+
+position = Vector2( 900, 510 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Block11" parent="Node2D" index="10" instance=ExtResource( 3 )]
+
+position = Vector2( 500, 460 )
+
+[node name="Block12" parent="Node2D" index="11" instance=ExtResource( 3 )]
+
+position = Vector2( 700, 460 )
+scale = Vector2( -1, 1 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Node2D" parent="Node2D/Block12" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( -462.62, -19.0001 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 15.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.4
+drag_margin_top = 0.2
+drag_margin_right = 0.1
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
+
+[node name="HUD" parent="Camera2D" index="0" instance=ExtResource( 5 )]
+
+

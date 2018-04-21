@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PlayerSprite.png" type="Texture" id=2]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.09
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+z_index = 1
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, 32, 32, -32, -32, -32, -32, 32 )
+
+
